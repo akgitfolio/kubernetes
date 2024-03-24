@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: cluster-monitoring
+spec:
+  selector:
+    matchLabels:
+      app: cluster-monitoring
+  template:
+    metadata:
+      labels:
+        app: cluster-monitoring
+    spec:
+      containers:
+        - name: monitoring-container
+          image: monitor-app
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5050
+          env:
+            - name: CLUSTER_NAME
+              value: "your-cluster-name"
