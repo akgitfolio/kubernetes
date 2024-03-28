@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: example-cronjob
+spec:
+  schedule: "*/1 * * * *" # This means every minute
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: example
+              image: busybox # Using a simple image
+              args:
+                - /bin/sh
+                - -c
+                - date; echo Hello from the Kubernetes cluster
+          restartPolicy: OnFailure

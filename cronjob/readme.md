@@ -1,0 +1,1 @@
+Kubernetes CronJobs allow you to run jobs on a scheduled basis, similar to cron jobs in Unix-like systems. CronJobs are useful for performing periodic and repetitive tasks, such as backups, report generation, or system maintenance.
