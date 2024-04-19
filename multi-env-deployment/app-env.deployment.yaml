@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-dev
+  namespace: development
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp-dev
+  template:
+    metadata:
+      labels:
+        app: myapp-dev
+    spec:
+      containers:
+        - name: myapp
+          image: your-registry/myapp:dev
+          ports:
+            - containerPort: 80
