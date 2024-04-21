@@ -1,0 +1,8 @@
+apiVersion: autoscaling/v1
+kind: ClusterAutoscaler
+metadata:
+  name: cluster-autoscaler
+spec:
+  scale-down-utilization-threshold: 0.5
+  balance-similar-node-groups: true
+  scale-down-unneeded-time: 10m
